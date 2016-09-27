@@ -126,9 +126,9 @@ Request two public IP addresses to be allocated to the gateway you will create f
 
 #### 2. Create the VPN gateway with active-active configuration
 
-Create the virtual network gateway for TestVNet1. Note that there are two GatewayIpConfig entries, and the EnableActiveActiveFeature flag is set. Active-active mode requires a Route-Based VPN gateway of HighPerformance SKU. Creating a gateway can take a while (30 minutes or more to complete).
+Create the virtual network gateway for TestVNet1. Note that there are two GatewayIpConfig entries, and the ActiveActive flag is set to $true. Active-active mode requires a Route-Based VPN gateway of HighPerformance SKU. Creating a gateway can take a while (30 minutes or more to complete).
 
-	New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
+	New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -ActiveActive $true
 
 #### 3. Obtain the gateway public IP addresses and the BGP Peer IP address
 
